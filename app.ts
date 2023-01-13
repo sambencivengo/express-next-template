@@ -1,9 +1,11 @@
 import express from 'express';
 import next from 'next';
+import cors from 'cors';
+import { env } from './env';
 
-console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+console.log(`Node environment: ${process.env.NODE_ENV}`);
 const port = process.env.PORT || 8000;
-const dev = process.env.NODE_ENV !== 'production';
+const dev = env.nodeEnv !== 'production';
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -12,7 +14,12 @@ app.prepare()
 	.then(async () => {
 		const server = express();
 
-		// TODO: DB init
+		server.use(
+			cors({
+				credentials: true,
+				origin: env.websiteUrl,
+			})
+		);
 
 		server.get('/*', (req, res) => {
 			return handle(req, res);
