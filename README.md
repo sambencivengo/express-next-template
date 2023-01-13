@@ -13,7 +13,7 @@ yarn
 Second, copy the `.env.sample` file at the root of the project and add your own environment variables. Be sure to exclude your `.env` file from git:
 
 ```bash
-    cp packages/api/.env.sample packages/api/.env.local
+cp .env.sample .env
 ```
 
 Third, run the development server:
