@@ -4,7 +4,7 @@ import cors from 'cors';
 import { env } from './env';
 import { api } from './api';
 
-console.log(`Node environment: ${process.env.NODE_ENV}`);
+console.log(`Node environment: ${env.nodeEnv}`);
 const port = process.env.PORT || 8000;
 const dev = env.nodeEnv !== 'production';
 
