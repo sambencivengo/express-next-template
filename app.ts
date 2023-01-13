@@ -2,6 +2,7 @@ import express from 'express';
 import next from 'next';
 import cors from 'cors';
 import { env } from './env';
+import { api } from './api';
 
 console.log(`Node environment: ${process.env.NODE_ENV}`);
 const port = process.env.PORT || 8000;
@@ -20,6 +21,8 @@ app.prepare()
 				origin: env.websiteUrl,
 			})
 		);
+
+		server.use('/api', api);
 
 		server.get('/*', (req, res) => {
 			return handle(req, res);
