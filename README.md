@@ -16,7 +16,7 @@ Second, copy the `.env.sample` file at the root of the project and add your own 
 cp .env.sample .env
 ```
 
-Third, run the development server:
+Third, run the development server and you should be good to go!:
 
 ```bash
 npm run dev
