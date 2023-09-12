@@ -29,7 +29,7 @@ app.prepare()
 		});
 
 		server.listen(port, () => {
-			console.log(`Server is listening on PORT:${port}`);
+			console.log(`Server is listening on PORT: http://localhost:${port}/`);
 		});
 	})
 	.catch((error) => {
